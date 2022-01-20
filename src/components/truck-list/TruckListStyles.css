@@ -1,0 +1,10 @@
+.truck-list-container { 
+    width: 100vw;
+}
+
+.truck-list { 
+    display: flex;
+    flex-flow: row;
+    justify-content:space-between;
+    padding: 0;
+}

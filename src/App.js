@@ -1,23 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import TruckList from './components/truck-list/TruckList';
+import TruckShowcase from './components/truck-showcase/TruckShowcase';
 
 function App() {
+  const trucks = [
+    {
+        truckManufacturer: 'Toyota',
+        truckName: 'Tacoma',
+        truckTrim: 'TRD Off-Road Pro'
+    },
+    {
+        truckManufacturer: 'Chevrolet',
+        truckName: 'Colorado',
+        truckTrim: 'ZR2 Bison'
+    },
+    {
+        truckManufacturer: 'Ford',
+        truckName: 'Ranger',
+        truckTrim: 'Tremor'
+    }
+];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <TruckShowcase trucks = {trucks} ></TruckShowcase>
+      <TruckList trucks = {trucks}/>
     </div>
   );
 }

@@ -1,0 +1,50 @@
+.showcaseContainer { 
+ display: flex;
+ flex-flow: row;
+ flex-wrap: nowrap;
+ justify-content: space-between;
+ height: 50vh;
+ width: 100vw;
+}
+.truckContainer, 
+.prevButtonContainer, 
+.nextButtonContainer {
+    display: flex; 
+    height: 100%;
+}
+
+.truckContainer { 
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.truckDisplay { 
+    display: block;
+    height: 70%;
+    width: 100%;
+    background-color: red;
+}
+.truckTable { 
+    display: table;
+    height: 30%;
+    width: 100%;
+    background-color: #f7f7f7;
+    border: 1px solid #b9b9b98a;
+    border-radius: 25px;
+}
+ .truckTable tr { 
+     border-style: solid;
+     border-bottom: #333333;
+ }
+
+.prevButtonContainer,
+.nextButtonContainer {
+
+    width: 10%;
+    align-items: center;
+}
+
+
