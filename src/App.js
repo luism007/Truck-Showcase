@@ -19,6 +19,16 @@ function App() {
         truckManufacturer: 'Ford',
         truckName: 'Ranger',
         truckTrim: 'Tremor'
+    },
+    {
+        truckManufacturer: 'Nissan',
+        truckName: 'Frontier',
+        truckTrim: 'Pro 4X'
+    },
+    {
+        truckManufacturer: 'Jeep',
+        truckName: 'Gladiator',
+        truckTrim: 'Rubicon'
     }
 ];
   return (
