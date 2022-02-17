@@ -4,7 +4,7 @@ import "./TruckCardStyles.css";
 
 const TruckCard = (props) => {
 
-    const imagesUrl = '../../assets/images/';
+    const imagesUrl = '../../../assets/images/';
     
     const sendTruck = (truck) => {
         CrossComponentCommunicationService.updateTruckSubject(truck);
@@ -17,7 +17,7 @@ const TruckCard = (props) => {
         }
 
         const name = truck.name;
-
+        console.log('Truck passed in: ', name);
         switch(name) { 
             case 'Tacoma':
                 return imagesUrl + '2022-toyota-tacoma-trd-pro.jpeg';
@@ -39,7 +39,7 @@ const TruckCard = (props) => {
     return(
         <div className= "cardContainer" onClick={() => { sendTruck(props.truck); }}>
             <li> {props.truck.name} </li>
-            <img src={getImage(props.truck)}></img>
+            <img alt = {props.truck.name} src={getImage(props.truck)}></img>
         </div>
     );
 }
