@@ -30,12 +30,39 @@ const TruckShowcase = (props) => {
     const prev = () => { 
         const searchIndex = getSearchIndex(props.trucks, truck, true);
         const newTruck = props.trucks[searchIndex];
+        const currentShowcase = document.getElementById('currentShowcase');
+        
+        if(currentShowcase.classList.contains('previous')) { 
+            console.log('Got it!');
+            currentShowcase.classList.remove('previous');
+            //currentShowcase.classList.add('previous');
+            console.log('Gone', currentShowcase.classList.contains('previous'));
+        } 
+            currentShowcase.classList.add('previous');
+       
+        
+
+        if(currentShowcase.classList.contains('next')) { 
+            currentShowcase.classList.remove('next');
+        }
+        
         CrossComponentCommunicationService.updateTruckSubject(newTruck);
     }
 
     const next = () => {
         const searchIndex = getSearchIndex(props.trucks, truck, false);
         const newTruck = props.trucks[searchIndex];
+        const currentShowcase = document.getElementById('currentShowcase');
+        
+
+        currentShowcase.classList.add('next');
+        
+        if(currentShowcase.classList.contains('previous')) { 
+            currentShowcase.classList.remove('previous');
+        }
+
+        
+
         CrossComponentCommunicationService.updateTruckSubject(newTruck);
     }
 
@@ -72,7 +99,7 @@ const TruckShowcase = (props) => {
     }
 
     return( 
-        <div className='showcaseContainer'>
+        <div className='showcaseContainer' id = "currentShowcase">
             <div className='prevButtonContainer'>
                 <button onClick = { prev }> Prev </button>
             </div>

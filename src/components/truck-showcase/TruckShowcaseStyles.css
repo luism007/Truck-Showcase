@@ -47,4 +47,34 @@
     align-items: center;
 }
 
+#currentShowcase.previous { 
+    animation-name: previous;
+    animation-duration: 3s;
+}
+
+#currentShowcase.next { 
+    animation-name: next;
+    animation-duration: 3s;
+}
+
+@keyframes previous { 
+    from { 
+        background-color: red;
+    }
+    to { 
+        background-color: blue;
+    }
+
+}
+
+@keyframes next { 
+    from { 
+        background-color: red;
+    }
+
+    to { 
+        background-color: green;
+    }
+}
+
 
