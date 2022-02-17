@@ -4,3 +4,8 @@
     background-color: cadetblue;
     color: white;
 }
+
+.truckCardImg { 
+    max-width: 100%;
+    height: auto;
+}

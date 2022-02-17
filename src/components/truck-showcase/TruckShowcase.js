@@ -9,6 +9,8 @@ const TruckShowcase = (props) => {
         trim: 'TRD Off-Road Pro'
     });
 
+    const imagesUrl = '../../../assets/images/';
+
     let subscription$;
 
     useEffect(() => {
@@ -98,13 +100,44 @@ const TruckShowcase = (props) => {
         return properIndex;
     }
 
+    const getImage = (truck) => {
+
+        if(!truck) {
+            return;
+        }
+
+        const name = truck.name;
+        
+        switch(name) { 
+            case 'Tacoma':
+                return imagesUrl + '2022-toyota-tacoma-trd-pro.jpeg';
+            case 'Colorado': 
+                return imagesUrl + 'chevrolet-colorado-zr2.jpeg';
+            case 'Ranger':
+                return imagesUrl + 'ford-ranger-tremor.jpeg';
+            case 'Frontier':
+                return imagesUrl + 'nissan-frontier-pro4x.jpeg';
+            case 'Gladiator':
+                return imagesUrl + 'jeep-gladiator.jpeg';
+            default:
+                return imagesUrl + '2022-toyota-tacoma-trd-pro.jpeg';
+        }
+
+    }
+
     return (
       <div className="showcaseContainer" id="currentShowcase">
         <div className="prevButtonContainer">
           <button onClick={prev}> Prev </button>
         </div>
         <div className="truckContainer">
-          <div className="truckDisplay"></div>
+          <div className="truckDisplay">
+            <img
+              alt={truck.name}
+              src={getImage(truck)}
+              className="truckCardImg"
+            ></img>
+          </div>
           <table className="truckTable">
             <tbody>
               <tr>

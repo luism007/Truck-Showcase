@@ -17,7 +17,7 @@ const TruckCard = (props) => {
         }
 
         const name = truck.name;
-        console.log('Truck passed in: ', name);
+        
         switch(name) { 
             case 'Tacoma':
                 return imagesUrl + '2022-toyota-tacoma-trd-pro.jpeg';
@@ -39,7 +39,7 @@ const TruckCard = (props) => {
     return(
         <div className= "cardContainer" onClick={() => { sendTruck(props.truck); }}>
             <li> {props.truck.name} </li>
-            <img alt = {props.truck.name} src={getImage(props.truck)}></img>
+            <img alt = {props.truck.name} src={getImage(props.truck)} className="truckCardImg"></img>
         </div>
     );
 }

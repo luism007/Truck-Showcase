@@ -15,10 +15,9 @@
 
 .truckContainer { 
     width: 90%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 100%;
 }
 
 .truckDisplay { 
@@ -47,6 +46,8 @@
     align-items: center;
 }
 
+
+
 #currentShowcase.previous { 
     animation-name: previous;
     animation-duration: 3s;
@@ -55,6 +56,11 @@
 #currentShowcase.next { 
     animation-name: next;
     animation-duration: 3s;
+}
+
+.truckCardImg { 
+    max-width: 100%;
+    height: auto;
 }
 
 @keyframes previous { 
