@@ -4,9 +4,9 @@ import "./TruckShowcaseStyles.css";
 const TruckShowcase = (props) => {
 
     const [truck, setTruck] = useState({
-        truckManufacturer: 'Toyota',
-        truckName: 'Tacoma',
-        truckTrim: 'TRD Off-Road Pro'
+        manufacturer: 'Toyota',
+        name: 'Tacoma',
+        trim: 'TRD Off-Road Pro'
     });
 
     let subscription$;
@@ -67,7 +67,7 @@ const TruckShowcase = (props) => {
     }
 
     const getSearchIndex = (array, truck, isPrev) => {
-        const index = array.findIndex((t) => t.truckName === truck.truckName);
+        const index = array.findIndex((t) => t.name === truck.name);
         const searchIndex = (isPrev) ? findProperPrevIndex(index, array) : findProperNextIndex(index, array);
         return searchIndex;
     }
@@ -113,9 +113,9 @@ const TruckShowcase = (props) => {
                 <td> Trim </td>
               </tr>
               <tr>
-                <td> {truck.truckManufacturer} </td>
-                <td> {truck.truckName} </td>
-                <td> {truck.truckTrim} </td>
+                <td> {truck.manufacturer} </td>
+                <td> {truck.name} </td>
+                <td> {truck.trim} </td>
               </tr>
             </tbody>
           </table>
