@@ -16,7 +16,7 @@ const TruckCard = (props) => {
             return;
         }
 
-        const name = truck.truckName;
+        const name = truck.name;
 
         switch(name) { 
             case 'Tacoma':
@@ -38,8 +38,8 @@ const TruckCard = (props) => {
 
     return(
         <div className= "cardContainer" onClick={() => { sendTruck(props.truck); }}>
-            <li key={props.id}> {props.truck.truckName} </li>
-            <img src={ getImage(props.truck) }></img>
+            <li> {props.truck.name} </li>
+            <img src={getImage(props.truck)}></img>
         </div>
     );
 }

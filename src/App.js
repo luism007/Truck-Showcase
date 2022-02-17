@@ -2,10 +2,11 @@ import logo from './logo.svg';
 import './App.css';
 import TruckList from './components/truck-list/TruckList';
 import TruckShowcase from './components/truck-showcase/TruckShowcase';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
-  let trucks = [];
+
+  const [trucks, setTrucks] = useState([]);
 
   useEffect(() => {
     getTrucks();
@@ -16,7 +17,7 @@ const getTrucks = async () => {
   const response = await fetch('http://localhost:3000/trucks');
   const body = await response.json();
   console.log('Returned from API', body);
-  trucks =
+  let truckList =
     body !== null
       ? body
       : [
@@ -46,7 +47,7 @@ const getTrucks = async () => {
             truckTrim: "Rubicon",
           },
         ];
-
+    setTrucks([...truckList]);
 }
   return (
     <div>

@@ -98,32 +98,32 @@ const TruckShowcase = (props) => {
         return properIndex;
     }
 
-    return( 
-        <div className='showcaseContainer' id = "currentShowcase">
-            <div className='prevButtonContainer'>
-                <button onClick = { prev }> Prev </button>
-            </div>
-            <div className='truckContainer'>
-                <div className='truckDisplay'>
-
-                </div>
-                <table className='truckTable'>
-                    <td>
-                        <tr> Manufacturer </tr>
-                        <tr> Model </tr>
-                        <tr> Trim </tr>
-                    </td>
-                    <td>
-                        <tr> {truck.truckManufacturer} </tr>
-                        <tr> {truck.truckName} </tr>
-                        <tr> {truck.truckTrim} </tr>
-                    </td>
-                </table>
-            </div>
-            <div className='nextButtonContainer'>
-                <button onClick = { next }> Next </button>
-            </div>
+    return (
+      <div className="showcaseContainer" id="currentShowcase">
+        <div className="prevButtonContainer">
+          <button onClick={prev}> Prev </button>
         </div>
+        <div className="truckContainer">
+          <div className="truckDisplay"></div>
+          <table className="truckTable">
+            <tbody>
+              <tr>
+                <td> Manufacturer </td>
+                <td> Model </td>
+                <td> Trim </td>
+              </tr>
+              <tr>
+                <td> {truck.truckManufacturer} </td>
+                <td> {truck.truckName} </td>
+                <td> {truck.truckTrim} </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div className="nextButtonContainer">
+          <button onClick={next}> Next </button>
+        </div>
+      </div>
     );
 
 }
