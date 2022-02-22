@@ -3,7 +3,8 @@ import TruckCard from "../truck-card/TruckCard";
 import "./TruckListStyles.css";
 
 const TruckList = (props) => {
-    console.log('Truck List props', props.trucks);
+    const [trucks, setTrucks] = useState([]);
+    
     return(
         <div className = "truck-list-container"> 
             <ul className = "truck-list">

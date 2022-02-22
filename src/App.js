@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import TruckList from './components/truck-list/TruckList';
 import TruckShowcase from './components/truck-showcase/TruckShowcase';
+import TruckCreateTruckForm from './components/truck-create-truck-form/TruckCreateTruckForm';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -16,7 +17,6 @@ const getTrucks = async () => {
 
   const response = await fetch('http://localhost:3000/trucks');
   const body = await response.json();
-  console.log('Returned from API', body);
   let truckList =
     body !== null
       ? body
@@ -53,6 +53,7 @@ const getTrucks = async () => {
     <div>
       <TruckShowcase trucks = {trucks} ></TruckShowcase>
       <TruckList trucks = {trucks}/>
+      <TruckCreateTruckForm/>
     </div>
   );
 }
