@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import TruckCard from "../truck-card/TruckCard";
 import "./TruckListStyles.css";
+import { connect } from "react-redux";
 
 const TruckList = (props) => {
-    const [trucks, setTrucks] = useState([]);
-    
+
     return(
         <div className = "truck-list-container"> 
             <ul className = "truck-list">
                 { 
                     props.trucks.map((truck, index) => 
-                        <TruckCard key ={truck._id} truck={truck}></TruckCard>
+                        <TruckCard key ={index} truck={truck}></TruckCard>
                     )
                 }
             </ul>
@@ -18,4 +18,14 @@ const TruckList = (props) => {
     );
 }
 
-export default TruckList;
+const mapStateToProps = (state, ownProps) => {
+    return {
+        trucks: state.trucks
+    }
+}
+
+const mapDispatchToProps = () => {
+
+}
+
+export default connect(mapStateToProps)(TruckList);
