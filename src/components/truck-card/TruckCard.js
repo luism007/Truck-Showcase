@@ -47,12 +47,33 @@ const TruckCard = (props) => {
 
     }
 
+    const Card = ({truck}) => {
+        if(!doesTruckHaveProperties(truck)) { 
+            return (
+              <p> { console.log('Empty Truck!')} </p>
+            );
+        } else { 
+            return (
+              <div
+                className="cardContainer"
+                onClick={() => {
+                  sendTruck(truck);
+                }}
+              >
+                <li> {truck.name} </li>
+                <img
+                  alt={truck.name}
+                  src={getImage(truck)}
+                  className="truckCardImg"
+                ></img>
+              </div>
+            );
+        }
+    }
+
 
     return(
-        <div className= "cardContainer" onClick={() => { sendTruck(props.truck); }}>
-            <li> {props.truck.name} </li>
-            <img alt = {props.truck.name} src={getImage(props.truck)} className="truckCardImg"></img>
-        </div>
+        <Card truck = { props.truck } />
     );
 }
 

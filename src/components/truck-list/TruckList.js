@@ -14,7 +14,17 @@ const TruckList = (props) => {
         } else { 
             val = false;
         }
-        console.log('Evaluated val: ', val);
+        return val;
+    }
+
+    const doesTruckHaveProperties = (truck) => {
+        let val = false;
+
+        if(!truck) { 
+            val = false;
+        } else if (Object.keys(truck).length !== 0) { 
+            val = true;
+        }
         return val;
     }
 
@@ -23,7 +33,7 @@ const TruckList = (props) => {
         <ul className="truck-list">
           {trucksInProps(props.trucks) &&
             props.trucks.map((truck, index) => (
-              <TruckCard key={index} truck={truck}></TruckCard>
+             doesTruckHaveProperties(truck) && <TruckCard key={index} truck={truck}></TruckCard>
             ))}
         </ul>
       </div>
