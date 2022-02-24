@@ -5,16 +5,28 @@ import { connect } from "react-redux";
 
 const TruckList = (props) => {
 
-    return(
-        <div className = "truck-list-container"> 
-            <ul className = "truck-list">
-                { 
-                    props.trucks.map((truck, index) => 
-                        <TruckCard key ={index} truck={truck}></TruckCard>
-                    )
-                }
-            </ul>
-        </div>
+    const trucksInProps = (trucks) => {
+        let val = false;
+        if(!trucks) { 
+            val = false;
+        } else if (trucks.length > 0) { 
+            val =  true;
+        } else { 
+            val = false;
+        }
+        console.log('Evaluated val: ', val);
+        return val;
+    }
+
+    return (
+      <div className="truck-list-container">
+        <ul className="truck-list">
+          {trucksInProps(props.trucks) &&
+            props.trucks.map((truck, index) => (
+              <TruckCard key={index} truck={truck}></TruckCard>
+            ))}
+        </ul>
+      </div>
     );
 }
 
