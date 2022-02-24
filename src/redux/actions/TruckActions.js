@@ -1,5 +1,9 @@
 const createTruck = (truck) => {
     return { type: "CREATE_TRUCK", truck: truck }
-}
+};
 
-export default createTruck;
+const initializeTrucks = (trucks) => {
+    return { type: "INITIALIZE_TRUCKS", trucks: trucks}
+};
+
+export default { createTruck, initializeTrucks };

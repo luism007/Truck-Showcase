@@ -2,7 +2,9 @@
 const truckReducer = (state = [], action) => {
     switch(action.type) { 
         case "CREATE_TRUCK":
-            return [...state, {...action.truck}];
+            return [...state, action.truck];
+        case "INITIALIZE_TRUCKS":
+            return [state, ...action.trucks];
         default:
             return state;
     }

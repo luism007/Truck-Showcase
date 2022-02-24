@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import * as trucksApi from './api/TrucksApi';
 import {PropTypes} from 'prop-types';
 import { connect } from 'react-redux';
-import createTruck from './redux/actions/TruckActions';
+import truckActions from './redux/actions/TruckActions';
 
 const App = (props) => {
 
@@ -51,7 +51,7 @@ const getTrucks = async () => {
           },
         ];
     // setTrucks([...truckList]);
-    props.dispatch(createTruck(...truckList));
+    props.dispatch(truckActions.initializeTrucks(truckList));
 }
   return (
     <div>

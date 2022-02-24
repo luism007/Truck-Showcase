@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import createTruck from '../../redux/actions/TruckActions';
+import truckActions from '../../redux/actions/TruckActions';
 import PropTypes from 'prop-types';
 import { connect } from "react-redux";
 
@@ -20,7 +20,7 @@ const TruckCreateTruckForm = (props) => {
      const handleSubmit = (event) => {
          event.preventDefault();
          // eslint-disable-next-line no-undef
-         props.dispatch(createTruck(truck))
+         props.dispatch(truckActions.createTruck(truck))
         console.log(event);
      }
 
