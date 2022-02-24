@@ -10,6 +10,18 @@ const TruckCard = (props) => {
         CrossComponentCommunicationService.updateTruckSubject(truck);
     };
 
+    const doesTruckHaveProperties = (truck) => {
+        let val = false;
+
+        if(!truck) { 
+            val = false;
+        } else if (Object.keys(truck).length !== 0) { 
+            val = true;
+        }
+
+        return val;
+    }
+
     const getImage = (truck) => {
 
         if(!truck) {
@@ -17,7 +29,7 @@ const TruckCard = (props) => {
         }
 
         const name = truck.name;
-        
+
         switch(name) { 
             case 'Tacoma':
                 return imagesUrl + '2022-toyota-tacoma-trd-pro.jpeg';
