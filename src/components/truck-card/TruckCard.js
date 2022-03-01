@@ -10,6 +10,18 @@ const TruckCard = (props) => {
         CrossComponentCommunicationService.updateTruckSubject(truck);
     };
 
+    const doesTruckHaveProperties = (truck) => {
+        let val = false;
+
+        if(!truck) { 
+            val = false;
+        } else if (Object.keys(truck).length !== 0) { 
+            val = true;
+        }
+
+        return val;
+    }
+
     const getImage = (truck) => {
 
         if(!truck) {
@@ -17,7 +29,7 @@ const TruckCard = (props) => {
         }
 
         const name = truck.name;
-        
+
         switch(name) { 
             case 'Tacoma':
                 return imagesUrl + '2022-toyota-tacoma-trd-pro.jpeg';
@@ -35,12 +47,33 @@ const TruckCard = (props) => {
 
     }
 
+    const Card = ({truck}) => {
+        if(!doesTruckHaveProperties(truck)) { 
+            return (
+              <p> { console.log('Empty Truck!')} </p>
+            );
+        } else { 
+            return (
+              <div
+                className="cardContainer"
+                onClick={() => {
+                  sendTruck(truck);
+                }}
+              >
+                <li> {truck.name} </li>
+                <img
+                  alt={truck.name}
+                  src={getImage(truck)}
+                  className="truckCardImg"
+                ></img>
+              </div>
+            );
+        }
+    }
+
 
     return(
-        <div className= "cardContainer" onClick={() => { sendTruck(props.truck); }}>
-            <li> {props.truck.name} </li>
-            <img alt = {props.truck.name} src={getImage(props.truck)} className="truckCardImg"></img>
-        </div>
+        <Card truck = { props.truck } />
     );
 }
 

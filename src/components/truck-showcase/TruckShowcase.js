@@ -1,6 +1,7 @@
 import {React, useEffect, useState} from 'react';
 import CrossComponentCommunicationService from '../../services/CrossComponentCommunicationService';
 import "./TruckShowcaseStyles.css";
+import { connect } from 'react-redux';
 const TruckShowcase = (props) => {
 
     const [truck, setTruck] = useState({
@@ -14,7 +15,6 @@ const TruckShowcase = (props) => {
     let subscription$;
 
     useEffect(() => {
-
         subscription$ = CrossComponentCommunicationService
         .getTruckSubject()
         .subscribe((t) => {
@@ -161,4 +161,10 @@ const TruckShowcase = (props) => {
 
 }
 
-export default TruckShowcase;
+const mapStateToProps = (state, ownProps) => {
+    return {
+        trucks: state.trucks
+    }
+}
+
+export default connect(mapStateToProps)(TruckShowcase);
