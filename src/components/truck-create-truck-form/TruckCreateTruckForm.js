@@ -8,7 +8,6 @@ const TruckCreateTruckForm = (props) => {
     const [truck, setTruck] = useState({});
 
     const handleFormChange = (event) => {
-        console.log('Form: ', event.target.value);
         const truck = {
             manufacturer: '',
             name: event.target.value,
@@ -24,14 +23,24 @@ const TruckCreateTruckForm = (props) => {
         console.log(event);
      }
 
+     const displayForm = (display) => {
+         console.log('Display', display);
+
+         if(!display) { 
+             return null;
+         } else { 
+           return <div>
+              <h1> Create Truck </h1>
+              <form onSubmit={handleSubmit}>
+                <input type="text" onChange={handleFormChange}></input>
+                <input type="submit" value="Submit"></input>
+              </form>
+            </div>;
+         }
+     }
+
     return(
-        <div>
-            <h1> Create Truck </h1>
-            <form onSubmit={ handleSubmit }>
-                <input type = "text" onChange={ handleFormChange }></input>
-                <input type = "submit" value = "Submit"></input> 
-            </form>
-        </div>
+            displayForm(props.display)
     );
 }
 
