@@ -20,22 +20,24 @@ const TruckCreateTruckForm = (props) => {
          event.preventDefault();
          // eslint-disable-next-line no-undef
          props.dispatch(truckActions.createTruck(truck))
-        console.log(event);
      }
 
      const displayForm = (display) => {
-         console.log('Display', display);
-
          if(!display) { 
              return null;
          } else { 
-           return <div>
-              <h1> Create Truck </h1>
-              <form onSubmit={handleSubmit}>
-                <input type="text" onChange={handleFormChange}></input>
-                <input type="submit" value="Submit"></input>
-              </form>
-            </div>;
+           return (
+             <div className="formWrapper">
+               <div className="formContainer">
+                 <h1> Create Truck </h1>
+                 <button onClick={ props.close }> Close </button>
+                 <form onSubmit={handleSubmit}>
+                   <input type="text" onChange={handleFormChange}></input>
+                   <input type="submit" value="Submit"></input>
+                 </form>
+               </div>
+             </div>
+           );
          }
      }
 
