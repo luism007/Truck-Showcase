@@ -22,8 +22,13 @@ const TruckCreateTruckForm = (props) => {
          props.dispatch(truckActions.createTruck(truck))
      }
 
+     const toggleModalClass = (display) => {
+        if(display) { 
+        }
+    }
      const displayForm = (display) => {
          if(!display) { 
+             // remove active class
              return null;
          } else { 
            return (
@@ -31,6 +36,7 @@ const TruckCreateTruckForm = (props) => {
                <div className="formContainer">
                  <h1> Create Truck </h1>
                  <button onClick={ props.close }> Close </button>
+                 <button onClick = {toggleModalClass(display)}> Test </button>
                  <form onSubmit={handleSubmit}>
                    <input type="text" onChange={handleFormChange}></input>
                    <input type="submit" value="Submit"></input>
