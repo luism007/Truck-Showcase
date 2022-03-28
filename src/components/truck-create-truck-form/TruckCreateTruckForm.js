@@ -24,6 +24,7 @@ const TruckCreateTruckForm = (props) => {
 
      const toggleModalClass = (display) => {
         if(display) { 
+          console.log('Test');
         }
     }
      const displayForm = (display) => {
