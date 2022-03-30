@@ -1,0 +1,21 @@
+.formWrapper {
+  z-index: 999;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+}
+
+.formContainer {
+  display: block;
+  width: 80%;
+  height: 40%;
+  margin: auto;
+  background-color: white;
+  border-radius: 25px;
+}
