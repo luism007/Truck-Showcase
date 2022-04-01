@@ -30,7 +30,7 @@ const TruckCreateTruckForm = (props) => {
     } else {
       return (
         <div className="formWrapper open">
-          <div className="formContainer">
+          <div className="formContainer open">
             <h1> Create Truck </h1>
             <button onClick={props.close}> Close </button>
             <button onClick={toggleModalClass(display)}> Test </button>

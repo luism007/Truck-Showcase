@@ -16,6 +16,18 @@
   width: 80%;
   height: 40%;
   margin: auto;
-  background-color: white;
   border-radius: 25px;
+  background-color: rgb(255, 255, 255, 1);
+  animation-name: appear;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes appear {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
