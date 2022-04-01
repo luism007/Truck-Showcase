@@ -21,23 +21,49 @@ const TruckCreateTruckForm = (props) => {
     // eslint-disable-next-line no-undef
     props.dispatch(truckActions.createTruck(truck));
   };
+  const closeForm = () => {
+    const form = document.getElementById("modal");
+    form.classList.remove("open");
+    form.classList.add("close");
+    props.close();
+  };
 
-  const toggleModalClass = (display) => {};
   const displayForm = (display) => {
     if (!display) {
-      // remove active class
       return null;
     } else {
       return (
-        <div className="formWrapper open">
-          <div className="formContainer open">
-            <h1> Create Truck </h1>
-            <button onClick={props.close}> Close </button>
-            <button onClick={toggleModalClass(display)}> Test </button>
-            <form onSubmit={handleSubmit}>
-              <input type="text" onChange={handleFormChange}></input>
-              <input type="submit" value="Submit"></input>
-            </form>
+        <div className="formWrapper">
+          <div className="formContainer open" id="modal">
+            <div className="formTitleContainer">
+              <h1> Create Truck </h1>
+              <div className="formButtonContainer">
+                <button onClick={closeForm}> Close </button>
+              </div>
+            </div>
+            <div className="formInputsContainer">
+              <form onSubmit={handleSubmit}>
+                <div className="formInputContainer">
+                  <label> Manufacturer </label>
+                  <input type="text" onChange={handleFormChange}></input>
+                </div>
+                <div className="formInputContainer">
+                  <label> Model </label>
+                  <input type="text"></input>
+                </div>
+                <div className="formInputContainer">
+                  <label> Trim </label>
+                  <input type="text"></input>
+                </div>
+                <div className="formInputContainer">
+                  <label> Year </label>
+                  <input type="text"></input>
+                </div>
+                <div className="formInputContainer">
+                  <input type="submit" value="Submit"></input>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       );
