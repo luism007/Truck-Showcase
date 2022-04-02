@@ -1,0 +1,72 @@
+.formWrapper {
+  z-index: 999;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+}
+
+.formContainer {
+  display: block;
+  width: 80%;
+  height: 40%;
+  margin: auto;
+  border-radius: 25px;
+  background-color: rgb(255, 255, 255, 1);
+}
+
+.formTitleContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 100%;
+  justify-items: center;
+  align-items: center;
+}
+
+.formInputsContainer {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: 100%;
+  justify-items: center;
+}
+
+.formInputContainer {
+  display: grid;
+  grid-auto-columns: repeat(2, 1fr);
+  margin: 10px auto;
+}
+
+.close {
+  animation-name: disappear;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+}
+
+.open {
+  animation-name: appear;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes appear {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes disappear {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}

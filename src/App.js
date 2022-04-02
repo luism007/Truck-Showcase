@@ -12,6 +12,7 @@ import truckActions from './redux/actions/TruckActions';
 const App = (props) => {
 
   const [trucks, setTrucks] = useState([]);
+  const [displayCreateTruckForm, setDisplayCreateTruckForm] = useState(false);
 
   useEffect(() => {
     getTrucks();
@@ -19,7 +20,6 @@ const App = (props) => {
 
 const getTrucks = async () => {
   const body = await trucksApi.getTrucks();
-  console.log(body);
   let truckList =
     body !== null
       ? body
@@ -50,14 +50,22 @@ const getTrucks = async () => {
             truckTrim: "Rubicon",
           },
         ];
-    // setTrucks([...truckList]);
     props.dispatch(truckActions.initializeTrucks(truckList));
+}
+
+const toggleCreateTruckForm = () => {
+  setDisplayCreateTruckForm(displayCreateTruckForm => !displayCreateTruckForm);
+}
+
+const handleCloseForm = (event) =>{
+  toggleCreateTruckForm();
 }
   return (
     <div>
       <TruckShowcase trucks = {trucks} ></TruckShowcase>
       <TruckList trucks = {trucks}/>
-      <TruckCreateTruckForm/>
+      <button onClick={ toggleCreateTruckForm }> Create Truck </button>
+      <TruckCreateTruckForm display = { displayCreateTruckForm } close = { handleCloseForm }/>
     </div>
   );
 }
