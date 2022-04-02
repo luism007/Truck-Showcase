@@ -7,19 +7,17 @@ import "./TruckCreateTruckForm.css";
 const TruckCreateTruckForm = (props) => {
   const [truck, setTruck] = useState({});
 
-  const handleFormChange = (event) => {
-    const truck = {
-      manufacturer: "",
-      name: event.target.value,
-      trim: "",
-    };
-    setTruck(truck);
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
+    const newTruck = {
+        manufacturer: document.getElementById('manufacturerInput').value,
+        name: document.getElementById('modelInput').value,
+        trim: document.getElementById('trimInput').value,
+        year: document.getElementById('yearInput').value
+    };
+    setTruck(newTruck);
     // eslint-disable-next-line no-undef
-    props.dispatch(truckActions.createTruck(truck));
+    //props.dispatch(truckActions.createTruck(truck));
   };
   const closeForm = () => {
     const form = document.getElementById("modal");
@@ -42,22 +40,22 @@ const TruckCreateTruckForm = (props) => {
               </div>
             </div>
             <div className="formInputsContainer">
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} id = "truckForm">
                 <div className="formInputContainer">
                   <label> Manufacturer </label>
-                  <input type="text" onChange={handleFormChange}></input>
+                  <input type="text" id = "manufacturerInput"></input>
                 </div>
                 <div className="formInputContainer">
                   <label> Model </label>
-                  <input type="text"></input>
+                  <input type="text" id = "modelInput"></input>
                 </div>
                 <div className="formInputContainer">
                   <label> Trim </label>
-                  <input type="text"></input>
+                  <input type="text" id = "trimInput"></input>
                 </div>
                 <div className="formInputContainer">
                   <label> Year </label>
-                  <input type="text"></input>
+                  <input type="text" id = "yearInput"></input>
                 </div>
                 <div className="formInputContainer">
                   <input type="submit" value="Submit"></input>
