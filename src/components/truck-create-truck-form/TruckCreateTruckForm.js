@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import "./TruckCreateTruckForm.css";
 
 const TruckCreateTruckForm = (props) => {
-  const [truck, setTruck] = useState({});
+  const [truck , setTruck] = useState({});
 
   const handleSubmit = (event) => {
     event.preventDefault();
