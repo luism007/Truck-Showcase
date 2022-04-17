@@ -1,3 +1,5 @@
+import "./TruckInputField.css";
+
 const TruckInputField = (props) => {
     
     return (

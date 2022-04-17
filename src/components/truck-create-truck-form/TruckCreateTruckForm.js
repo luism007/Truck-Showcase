@@ -68,7 +68,6 @@ const TruckCreateTruckForm = (props) => {
   };
 
   function onChange (e) {
-      console.log(e.target);
       setTruckForm({ ...truckForm, [e.target.name]: e.target.value });
   };
 
