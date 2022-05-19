@@ -14,7 +14,7 @@
 .formContainer {
   display: block;
   width: 80%;
-  height: 60%;
+  height: 80%;
   margin: auto;
   border-radius: 25px;
   background-color: rgb(255, 255, 255, 1);
@@ -42,6 +42,10 @@
   grid-auto-columns: repeat(2, 1fr);
   margin: 10px auto;
   overflow-y: auto;
+}
+
+#truckForm { 
+  width: 90%;
 }
 
 .close {

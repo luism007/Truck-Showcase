@@ -5,3 +5,27 @@
     padding: 10px;
     margin: 5px auto;
 }
+
+.inputLabel {
+font-weight: bold;
+}
+.inputField { 
+    display: block;
+    border-radius: 5px;
+    border: solid 1px rgba(52, 52, 52, 0.242);
+    height: 50px;
+    margin: 5px 0px;
+}
+
+.errorMessage {  
+    color: red;
+    font-style: italic;
+    font-size: 12px;
+    display: none;
+}
+
+.inputField:invalid ~ .errorMessage { 
+    display: block;
+}
+
+
