@@ -3,12 +3,22 @@ const  mongoose =  require('mongoose');
 
 const Truck = mongoose.model('vehicles-collections', TruckSchema);
 
-const getTrucks = async () => {
+const retrieveTrucks = async () => {
     const trucks = await Truck.find({});
-    console.log('Trucks', trucks);
     return trucks;
 }
 
+const createTruck = async (vehicle) => {
+    //const truck = new Truck(vehicle);
+    return await Truck.create(vehicle);
+}
+
+const removeVehicle = async(id) => {
+    return await Truck.findByIdAndDelete(id);
+}
+
 module.exports = {
-    getTrucks
+    retrieveTrucks,
+    createTruck,
+    removeVehicle
 }

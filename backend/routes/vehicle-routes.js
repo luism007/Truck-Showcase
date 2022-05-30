@@ -1,7 +1,9 @@
 const express = require('express');
-const { retrieveTrucks } = require('../controllers/vehicle-controllers');
+const { getTrucks, postTruck, deleteTruck } = require('../controllers/vehicle-controllers');
 const router = express.Router();
-console.log(retrieveTrucks);
-router.get('/trucks', retrieveTrucks);
+
+router.get('/trucks', getTrucks);
+router.post('/trucks', postTruck);
+router.delete('/trucks', deleteTruck);
 
 module.exports = router;
