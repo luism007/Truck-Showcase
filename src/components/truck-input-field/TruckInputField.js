@@ -13,6 +13,7 @@ const TruckInputField = (props) => {
       <div className="inputContainer">
         <label className = "inputLabel">{ props.label }</label>
         <input className = "inputField" 
+        id = {props.elementId}
         type={props.type} 
         required = {props.required} 
         name = { props.name} 

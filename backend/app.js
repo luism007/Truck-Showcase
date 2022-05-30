@@ -12,6 +12,8 @@ app.use(cors());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+// parse application/json
+app.use(bodyParser.json())
 
 app.use('/api/', vehicleRoutes);
 
