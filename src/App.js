@@ -58,7 +58,12 @@ const toggleCreateTruckForm = () => {
 }
 
 const handleCloseForm = (event) =>{
-  toggleCreateTruckForm();
+  const form = document.getElementById("form");
+  form.classList.remove("open");
+  form.classList.add("close");
+  if(displayCreateTruckForm) { 
+    toggleCreateTruckForm();
+  }
 }
   return (
     <div>

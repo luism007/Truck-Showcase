@@ -14,7 +14,7 @@ const postTruck = async(req, res, next) => {
         const truck = req.body;
         console.log('Truck', truck);
         await createTruck(truck);
-        res.json(truck).status(201);
+        res.json({message: 'Vehicle Created!', ...truck }).status(201);
     } catch (e) { 
         res.send({message: 'Failed to create Vehicle!'}).status(500);
     }

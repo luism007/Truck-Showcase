@@ -4,12 +4,13 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import TruckInputField from "../truck-input-field/TruckInputField";
 import "./TruckCreateTruckForm.css";
-
+import * as trucksApi from '../../api/TrucksApi';
 const TruckCreateTruckForm = (props) => {
   const [truck , setTruck] = useState({});
   const inputs = [
     {
       id: 1,
+      elementId: "manufacturerInput",
       field: "manufacturer",
       label: "Manufacturer",
       placeholder: "Manufacturer",
@@ -20,6 +21,7 @@ const TruckCreateTruckForm = (props) => {
     },
     {
       id: 2,
+      elementId: "modelInput",
       field: "model",
       label: "Model",
       placeholder: "Model",
@@ -30,6 +32,7 @@ const TruckCreateTruckForm = (props) => {
     },
     {
       id: 3,
+      elementId: "trimInput",
       field: "trim",
       label: "Trim",
       placeholder: "Trim",
@@ -40,6 +43,7 @@ const TruckCreateTruckForm = (props) => {
     },
     {
       id: 4,
+      elementId: "yearInput",
       field: "year",
       label: "Year",
       placeholder: "Year",
@@ -58,7 +62,7 @@ const TruckCreateTruckForm = (props) => {
       }
   );
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const newTruck = {
         manufacturer: document.getElementById('manufacturerInput').value,
@@ -67,7 +71,11 @@ const TruckCreateTruckForm = (props) => {
         year: document.getElementById('yearInput').value
     };
     setTruck(newTruck);
+    const response = await trucksApi.createTruck(newTruck);
     // eslint-disable-next-line no-undef
+    if(response) { 
+      props.dispatch(truckActions.createTruck(truck));
+    }
     //props.dispatch(truckActions.createTruck(truck));
   };
 
@@ -76,9 +84,6 @@ const TruckCreateTruckForm = (props) => {
   };
 
   const closeForm = () => {
-    const form = document.getElementById("modal");
-    form.classList.remove("open");
-    form.classList.add("close");
     props.close();
   };
 
@@ -87,8 +92,8 @@ const TruckCreateTruckForm = (props) => {
       return null;
     } else {
       return (
-        <div className="formWrapper">
-          <div className="formContainer open" id="modal">
+        <div className="formWrapper" id="modal">
+          <div className="formContainer open" id = "form">
             <div className="formTitleContainer">
               <h1> Create Truck </h1>
               <div className="formButtonContainer">
@@ -100,7 +105,7 @@ const TruckCreateTruckForm = (props) => {
                 {inputs.map((input) => (
                   <TruckInputField key = {input.id} {...input } name = { input.field } value = {truckForm[input.field]} onChange = { onChange }/>
                 ))}
-                <button>Submit</button>
+                <button className="submitButton">Submit</button>
               </form>
             </div>
           </div>
