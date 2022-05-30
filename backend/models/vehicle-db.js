@@ -13,7 +13,8 @@ const TruckSchema = new mongoose.Schema({
     manufacturer: String,
     name: String,
     trim: String,
-    year: String
+    year: String,
+    type: String
 });
 
 module.exports = {
