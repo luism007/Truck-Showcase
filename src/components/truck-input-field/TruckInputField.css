@@ -23,8 +23,11 @@ font-weight: bold;
     font-size: 12px;
     display: none;
 }
+.inputField:invalid[focused = 'true'] { 
+    border: 1px solid red;
+}
 
-.inputField:invalid ~ .errorMessage { 
+.inputField:invalid[focused = 'true'] ~ .errorMessage { 
     display: block;
 }
 

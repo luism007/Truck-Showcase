@@ -100,6 +100,7 @@ const TruckCreateTruckForm = (props) => {
                 {inputs.map((input) => (
                   <TruckInputField key = {input.id} {...input } name = { input.field } value = {truckForm[input.field]} onChange = { onChange }/>
                 ))}
+                <button>Submit</button>
               </form>
             </div>
           </div>
